@@ -1,49 +1,51 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<locale.h>
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
 
 struct ficha_pessoa
 {
     char nome[250];
     int idade;
-    char endereco[250];
-
+    int peso;
+    float altura;
 };
 
-int main(){
+int main()
+{
 
+    setlocale(LC_ALL, "Portuguese");
 
- 
+    struct ficha_pessoa pessoa[3];
+    int i;
 
-setlocale(LC_ALL,"Portuguese");
+    for (i = 0; i < 3; i++)
+    {
 
-struct ficha_pessoa pessoa;
+        fflush(stdin);
+        printf("Digite o nome da pessoa %d\n", i + 1);
+        gets(pessoa[i].nome);
 
-printf("Digite o nome da pessoa:\n");
-gets(pessoa.nome);
+        printf("Digite a idade da pessoa %d\n", i + 1);
+        scanf("%d", &pessoa[i].idade);
 
-printf("Digite a idade da pessoa:\n");
-scanf("%d",&pessoa.idade);
+        printf("Digite o peso da pessoa %d\n", i + 1);
+        scanf("%d", &pessoa[i].peso);
 
-fflush(stdin);   
+        printf("Digite a altura da pessoa %d\n", i + 1);
+        scanf("%f", &pessoa[i].altura);
+    }
 
-printf("Digite o endereço da pessoa:\n");
-gets(pessoa.endereco);
+    for (i = 0; i < 3; i++)
+    {
+        printf("O nome da pessoa é %s\n",pessoa[i].nome);
+        printf("A idade da pessoa é %d\n", pessoa[i].idade);
+        printf("O peso da pessoa é %d \n",pessoa[i].peso );
+        printf("A altura da pessoa é %2.f\n", pessoa[i].altura);
+      
+    }
 
-printf("\n\n");
-
-
-
-
-printf("O nome da pessoa é: %s \n", pessoa.nome);
-printf("A idade da pessoa é: %d \n", pessoa.idade);
-printf("O endereço da pessoa é: %s\n", pessoa.endereco);
-
-return 0;
-
+    return 0;
 }
-
 
 
 
